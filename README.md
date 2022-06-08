@@ -33,6 +33,14 @@ The **Query service** aggregates the data of the other two services. It correspo
 ## Information about the application
 
 ### Users
+Users defined as ready in the application are specified in the table. Apart from these, users can define new user and admin can define new courier user.
+
+| username | password |  role |
+| :---: | :---: | :---: | 
+| user@gmail.com | 12345678 | ROLE_USER | 
+| admin@gmail.com | 12345678 | ROLE_ADMIN |  
+| courier@gmail.com | 12345678 | ROLE_COURIER |  
+
 
 ### Important endpoints
 Parcel delivery application is accessed via (http://localhost:8080/parcel-delivery) 
