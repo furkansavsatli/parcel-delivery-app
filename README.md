@@ -70,4 +70,9 @@ Host(in docker) | Host(in machine) |  Port |
 
 
 ## Let's try it out
+The application can be run in 2 ways.
+1) The application is copied to the local machine. Postgres and rabbitmq are installed and run with the configurations defined above. Spring boot services are run.
+2) Run compose.yml with Docker.
+
+After any of these steps, http://localhost:8080/parcel-delivery address is opened with the browser.
 
