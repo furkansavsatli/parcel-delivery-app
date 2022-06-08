@@ -52,7 +52,7 @@ Users defined as ready in the application are specified in the table. Apart from
 | courier@gmail.com | 12345678 | ROLE_COURIER |  
 
 
-### Important endpoints
+### Important endpoint
 Parcel delivery application is accessed via http://localhost:8080/parcel-delivery 
 
 ### Database information
