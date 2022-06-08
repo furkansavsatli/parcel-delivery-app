@@ -43,7 +43,7 @@ Users defined as ready in the application are specified in the table. Apart from
 
 
 ### Important endpoints
-Parcel delivery application is accessed via (http://localhost:8080/parcel-delivery) 
+Parcel delivery application is accessed via http://localhost:8080/parcel-delivery 
 
 ### Database information
 | Database | Host(in docker) | Host(in machine) |  Port |
