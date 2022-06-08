@@ -53,5 +53,11 @@ Parcel delivery application is accessed via (http://localhost:8080/parcel-delive
 | shipmentdb | POSTGRES | localhost | 5432 | 
 | authdb | POSTGRES | localhost | 5432 | 
 
+### Rabbitmq information
+Host(in docker) | Host(in machine) |  Port |
+| :---: | :---: | :---: |  
+| rabbitmq3 | localhost | 15672 | 
+
+
 ## Let's try it out
 
