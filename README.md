@@ -21,7 +21,7 @@ While designing the architecture, the CQRS pattern was applied. Data is divided 
 ![Overview](https://user-images.githubusercontent.com/2388153/172686507-8b32a088-76ed-478d-a4d0-e213a0e899f3.png)
 
 ### Parcel Delivery Application
-We can think of this service as a frontend application. All interfaces are in this application. **Postman** can also be used instead of application. **Swagger** was used to achieve this in the project.
+We can think of this service as a frontend application. All interfaces are in this application. Some interfaces are defined more than once, as user stories are desired to be separated completely. For example, each user story has separate signin interfaces. **Postman** can also be used instead of application. **Swagger** was used to achieve this in the project.
 
 ### Auth Service
 Authorization responsibilities are extracted to a separate server, which grants **JWT** tokens for the backend resource services. Auth Server is used for user authorization as well as for secure service-to-service communication inside the perimeter.
