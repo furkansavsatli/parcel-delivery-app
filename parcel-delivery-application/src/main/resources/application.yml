@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: parcel-delivery-application
+server:
+  port: 8080
+
+
+service:
+  gateway: "http://${GATEWAY:localhost}"
+
