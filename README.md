@@ -5,10 +5,20 @@ This application is a simple parcel delivery application created to demonstrate 
 
 While designing the architecture, the CQRS pattern was applied. Data is divided into two as command and query. Rabbitmq is used for inter-service communication
 
+## Tech stack
+- java 11
+- Maven
+- Spring Boot
+- Spring Security with JWT Token
+- Spring Cloud Gateway
+- Rabbitmq
+- Docker
+- Swagger
+- CQRS Pattern
+
 ## Infrastructure
 
-
-![Overview](https://user-images.githubusercontent.com/2388153/172662404-aba35f43-6f9f-46c0-bace-28f7610a2ed1.png)
+![Overview](https://user-images.githubusercontent.com/2388153/172686507-8b32a088-76ed-478d-a4d0-e213a0e899f3.png)
 
 ### Parcel Delivery Application
 We can think of this service as a frontend application. All interfaces are in this application. **Postman** can also be used instead of application. **Swagger** was used to achieve this in the project.
