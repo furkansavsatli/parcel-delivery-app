@@ -62,12 +62,12 @@ public class AuthService {
 
     public Long registerUser(SignUpRequest signUpRequest) {
 
-        return register(signUpRequest,RoleName.ROLE_USER);
+        return register(signUpRequest, RoleName.ROLE_USER);
     }
 
     public Long registerCourier(SignUpRequest signUpRequest) {
 
-        return register(signUpRequest,RoleName.ROLE_COURIER);
+        return register(signUpRequest, RoleName.ROLE_COURIER);
     }
 
     private Long register(SignUpRequest signUpRequest, RoleName roleName) {
