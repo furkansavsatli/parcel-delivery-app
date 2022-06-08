@@ -1,0 +1,16 @@
+spring:
+  application:
+  name: gateway-service
+  main:
+    allow-circular-references: true
+server:
+  port: 9991
+
+
+service:
+  auth: "http://${AUTHMS:localhost}"
+  shipment: "http://${SHIPMENTMS:localhost}"
+  order: "http://${ORDERMS:localhost}"
+  query: "http://${QUERYMS:localhost}"
+
+
