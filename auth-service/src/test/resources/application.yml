@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: auth-service
+  datasource:
+    url: jdbc:postgresql://${POSTGRES:localhost}:5432/authdb
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password:  postgres
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    defer-datasource-initialization: true
+
+app:
+  jwtSecret: secret-key
+  jwtExpirationInMs: 604800000
