@@ -1,0 +1,120 @@
+version: '3.7'
+
+services:
+
+  rabbitmq3:
+    restart: always
+    container_name: "rabbitmq"
+    image: rabbitmq:3-management
+    environment:
+      - RABBITMQ_DEFAULT_USER=myuser
+      - RABBITMQ_DEFAULT_PASS=mypassword
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+
+    volumes:
+      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+
+  postgres:
+    container_name: demo_postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: "/data/postgres"
+    volumes:
+      - postgres:/data/postgres
+      - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  authms:
+    restart: always
+    image: furkansavsatli/savsatli:auth-service
+    ports:
+      - '8081:8081'
+    environment:
+      POSTGRES: postgres
+      AUTHMS: authms
+      QUERYMS: queryms
+      ORDERMS: orderms
+      SHIPMENTMS: shipmentms
+    links:
+      - postgres
+
+  gatewayms:
+    restart: always
+    image: furkansavsatli/savsatli:gateway-service
+    ports:
+      - '9991:9991'
+    environment:
+      AUTHMS: authms
+      QUERYMS: queryms
+      ORDERMS: orderms
+      SHIPMENTMS: shipmentms
+
+  orderms:
+    restart: always
+    image: furkansavsatli/savsatli:order-service
+    ports:
+      - '8082:8082'
+    links:
+      - postgres
+    environment:
+      POSTGRES: postgres
+      RABBITMQ: rabbitmq3
+      AUTHMS: authms
+      QUERYMS: queryms
+      SHIPMENTMS: shipmentms
+
+  shipmentms:
+    restart: always
+    image: furkansavsatli/savsatli:shipment-service
+    ports:
+      - '8083:8083'
+    links:
+      - postgres
+    environment:
+      POSTGRES: postgres
+      RABBITMQ: rabbitmq3
+      AUTHMS: authms
+      QUERYMS: queryms
+      ORDERMS: orderms
+
+  queryms:
+    restart: always
+    image: furkansavsatli/savsatli:query-service
+    ports:
+      - '8084:8084'
+    links:
+      - postgres
+    environment:
+      POSTGRES: postgres
+      RABBITMQ: rabbitmq3
+      AUTHMS: authms
+      ORDERMS: orderms
+      SHIPMENTMS: shipmentms
+
+  parceldelivery:
+    restart: always
+    image: furkansavsatli/savsatli:parcel-delivery-application
+    ports:
+      - '8080:8080'
+    environment:
+      MY_SECRET_KEY: ${MY_SECRET_KEY}
+      GATEWAY: gatewayms
+
+
+
+networks:
+  spring-postgres:
+
+volumes:
+  postgres:
+
+
+     
+  

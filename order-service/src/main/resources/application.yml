@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: order-service
+  rabbitmq:
+    host: ${RABBITMQ:localhost}
+    port: 5672
+    username: myuser
+    password: mypassword
+  datasource:
+    url: jdbc:postgresql://${POSTGRES:localhost}:5432/orderdb
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create-drop
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+server:
+  port: 8082
+app:
+  jwtSecret: secret-key
+
+service:
+  auth: "http://${AUTHMS:localhost}"
+  shipment: "http://${SHIPMENTMS:localhost}"
+  order: "http://${ORDERMS:localhost}"
+  query: "http://${QUERYMS:localhost}"
+
