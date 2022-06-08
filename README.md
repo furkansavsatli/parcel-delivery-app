@@ -76,3 +76,7 @@ The application can be run in 2 ways.
 
 After any of these steps, http://localhost:8080/parcel-delivery address is opened with the browser.
 
+
+![swagger](https://user-images.githubusercontent.com/2388153/172691146-cfa4a148-eafa-4b9f-9249-81edf8ec402b.png)
+
+
