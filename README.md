@@ -72,7 +72,7 @@ Host(in docker) | Host(in machine) |  Port |
 ## Let's try it out
 The application can be run in 2 ways.
 1) The application is copied to the local machine. Postgres and rabbitmq are installed and run with the configurations defined above. Spring boot services are run.
-2) Run compose.yml with Docker(It may take up to 1 minute for the services to be ready.).
+2) Run compose.yml with Docker (It may take up to 1 minute for the services to be ready).
 ``` docker compose up```
 
 
